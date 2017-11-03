@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hello World JQuery test</title>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+</head>
+
+<body>
+<div id="page_content">
+</div>
+
+<script>
+    /**@param data.name   Information about the object's cpr number.
+     * @param data.address
+     * @param data.cpr*/
+    $.getJSON("http://localhost:3000/customers", function (data) {
+
+        var html = "";
+
+        $.each( data, i => {
+            html += "<h1>" + data[i].name + "</h1>" +
+            "<p>" + data[i].address + "</p>" +
+            "<p>" + data[i].cpr + "</p>";
+        });
+        $("#page_content").html(html); // inject the html into the div with id "page_content"
+    });
+</script>
+</body>
+
+</html>
+</html>
