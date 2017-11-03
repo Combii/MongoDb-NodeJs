@@ -19,6 +19,6 @@ app.use(productsModule);
 const ordersModule = require(__dirname + '/routes/orders.js');
 app.use(ordersModule);
 
-app.listen(process.env.port || 3000);
+app.listen(process.env.PORT || 3000);
 
 console.log("Listening on PORT 3000");
