@@ -7,16 +7,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
-    res.sendFile('/index.html');
+    res.sendFile(__dirname + '/index.html');
 });
 
-const customersModule = require('./routes/customers.js');
+const customersModule = require(__dirname + './routes/customers.js');
 app.use(customersModule);
 
-const productsModule = require('./routes/products.js');
+const productsModule = require(__dirname + './routes/products.js');
 app.use(productsModule);
 
-const ordersModule = require('./routes/orders.js');
+const ordersModule = require(__dirname + './routes/orders.js');
 app.use(ordersModule);
 
 app.listen(process.env.port || 3000);
