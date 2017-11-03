@@ -1,104 +1,101 @@
+const MongoClient = require('mongodb');
 const express = require('express');
+const ObjectId = require('mongodb').ObjectID;
+const bodyParser = require('body-parser');
+const assert = require("assert");
+
 const app = express();
 
-const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+const mongoDbUrl = "mongodb://combii:1234@cluster-shard-00-00-uxhgu.mongodb.net:27017,cluster-shard-00-01-uxhgu.mongodb.net:27017,cluster-shard-00-02-uxhgu.mongodb.net:27017/zalandodummy?ssl=true&replicaSet=Cluster-shard-0&authSource=admin";
 
-const MongoClient = require('mongodb').MongoClient;
-const ObjectId = require('mongodb').ObjectID;
-//const mongodburl = 'mongodb://clbo:1234@cluster0-shard-00-00-9zvke.mongodb.net:27017,cluster0-shard-00-01-9zvke.mongodb.net:27017,cluster0-shard-00-02-9zvke.mongodb.net:27017/zalandodummy?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
-// const mongodburl = require('../util/mongourl.js');
-
-const mongodburl = require('../util/mongourl.json').url;
-
-
-// ===================
-// Products ===========
-// ====================
-// READ (all)
+//Read (All)
 app.get('/products', function (req, res) {
-    MongoClient.connect(mongodburl, function (err, db) {
 
+    MongoClient.connect(mongoDbUrl).then((db) => {
         var col = db.collection('products');
-        // Read All
-        col.find().toArray(function (err, result) {
-            //console.log(result);
-            res.json(result);
+
+        col.find().toArray().then((result) => {
+            res.json(result)
         });
+
         db.close();
+    }).catch((err) => {
+        console.log('ERROR!: ' + err);
     });
+
 });
-// READ (one)
+
+//Read (One)
 app.get('/products/:id', function (req, res) {
 
-    MongoClient.connect(mongodburl, function (err, db) {
+    MongoClient.connect(mongoDbUrl).then((db) => {
         var col = db.collection('products');
 
-        col.findOne({ '_id': ObjectId(req.params.id) }, function (err, result) {
+        col.findOne({'_id': ObjectId(req.params.id)}).then((result) => {
             res.json(result);
-        })
+        });
+
         db.close();
+    }).catch((err) => {
+        console.log('ERROR!: ' + err);
     });
+
 });
+
 // CREATE
 app.post('/products/', function (req, res) {
 
-    MongoClient.connect(mongodburl, function (err, db) {
+    MongoClient.connect(mongoDbUrl).then((db) => {
         var col = db.collection('products');
 
-        col.insertOne(req.body, function (err, result) {
+        col.insertOne(req.body).then(() => {
             res.status(201);
-            res.json({ msg: 'Customer Created' });
-        })
+            res.json({msg: 'Customer Created'});
+        }).catch((err) => {
+            console.log('ERROR!: ' + err);
+        });
         db.close();
     });
 });
-// DELETE
+
+// Delete
 app.delete('/products/:id', function (req, res) {
 
-    MongoClient.connect(mongodburl, function (err, db) {
+    MongoClient.connect(mongoDbUrl).then((db) => {
         var col = db.collection('products');
 
-        col.deleteOne({ '_id': ObjectId(req.params.id) }, function (err, result) {
-            res.status(204);
-            res.json();
+        MongoClient.connect(mongoDbUrl).then(() => {
+            col.deleteOne({_id: ObjectId(req.params.id)}).then((result) => {
+                assert.equal(1, result.result.n);
 
+                res.status(202);
+                res.json({msg: 'Customer Deleted'});
+            }).catch(() => {
+                res.status(404);
+                res.json({Error: "ERROR!: Could not delete user from MongoDB."});
+            });
+            db.close();
         });
-
-        db.close();
+    }).catch((err) => {
+        console.log('ERROR!: ' + err);
     });
-});
 
+});
 
 // UPDATE
 app.put('/products/:id', function (req, res) {
-    
-        MongoClient.connect(mongodburl, function (err, db) {
-            var col = db.collection('products');
-    
-            col.updateOne({ '_id': ObjectId(req.params.id) }, {$set : req.body}, function(err, result){
-                res.status(204);
-                res.json();
-            });
-            db.close();
+
+    MongoClient.connect(mongoDbUrl, function (err, db) {
+        var col = db.collection('products');
+
+        col.updateOne({'_id': ObjectId(req.params.id)}, {$set: req.body}, function (err, result) {
+            res.status(204);
+            res.json();
         });
+        db.close();
     });
+});
 
 
-// UPDATE
-app.put('/customers/:id', function (req, res) {
-    
-        MongoClient.connect(mongodburl, function (err, db) {
-            var col = db.collection('customers');
-    
-            col.updateOne({ '_id': ObjectId(req.params.id) }, {$set : req.body}, function(err, result){
-                res.status(204);
-                res.json();
-            });
-            db.close();
-        });
-    });
-
-
-    module.exports = app;
+module.exports = app;

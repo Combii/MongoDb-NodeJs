@@ -2,75 +2,83 @@ const express = require('express');
 const app = express();
 
 const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectID;
-//const mongodburl = 'mongodb://clbo:1234@cluster0-shard-00-00-9zvke.mongodb.net:27017,cluster0-shard-00-01-9zvke.mongodb.net:27017,cluster0-shard-00-02-9zvke.mongodb.net:27017/zalandodummy?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
-const mongodburl = require('../util/mongourl.js');
+
+const mongoDbUrl = "mongodb://combii:1234@cluster-shard-00-00-uxhgu.mongodb.net:27017,cluster-shard-00-01-uxhgu.mongodb.net:27017,cluster-shard-00-02-uxhgu.mongodb.net:27017/zalandodummy?ssl=true&replicaSet=Cluster-shard-0&authSource=admin";
 
 
-
-
-// ===================
-// Orders ===========
 // ====================
-// READ (all)
-app.get('/orders', function (req, res) {
-    MongoClient.connect(mongodburl, function (err, db) {
+// Orders =============
+// ====================
 
-        var col = db.collection('orders');
-        // Read All
-        col.find().toArray(function (err, result) {
-            //console.log(result);
-            res.json(result);
+//Read (All)
+app.get('/orders', function (req, res) {
+
+    MongoClient.connect(mongoDbUrl).then((db) => {
+        var col = db.collection('customers');
+
+        col.find().toArray().then((result) => {
+            res.json(result)
         });
+
         db.close();
+    }).catch((err) => {
+        console.log('ERROR!: ' + err);
     });
+
 });
-// READ (one)
+
+//Read (One)
 app.get('/orders/:id', function (req, res) {
 
-    MongoClient.connect(mongodburl, function (err, db) {
-        var col = db.collection('orders');
+    MongoClient.connect(mongoDbUrl).then((db) => {
+        var col = db.collection('customers');
 
-        col.findOne({ '_id': ObjectId(req.params.id) }, function (err, result) {
+        col.findOne({'_id': ObjectId(req.params.id)}).then((result) => {
             res.json(result);
-        })
+        });
+
         db.close();
+    }).catch((err) => {
+        console.log('ERROR!: ' + err);
     });
+
 });
+
 // CREATE
 app.post('/orders/', function (req, res) {
 
-    MongoClient.connect(mongodburl, function (err, db) {
-       
+    MongoClient.connect(mongoDbUrl, function (err, db) {
+
         var orderCol = db.collection('orders');
         var custCol = db.collection('customers');
         var prodCol = db.collection('products');
 
         var ordersTotal = {};
 
-        custCol.findOne({ '_id': ObjectId(req.body.user) }, function(err, result){         
-                ordersTotal.user = result;      
+        custCol.findOne({'_id': ObjectId(req.body.user)}, function (err, result) {
+            ordersTotal.user = result;
         });
 
         ordersTotal.products = [];
 
-        req.body.products.forEach(function(element, index, array) {
-            
-            prodCol.findOne({ '_id': ObjectId(element) }, function(err, result){
-                ordersTotal.products.push(result);
-             
+        req.body.products.forEach(function (element, index, array) {
 
-                if(index === array.length-1) {
+            prodCol.findOne({'_id': ObjectId(element)}, function (err, result) {
+                ordersTotal.products.push(result);
+
+
+                if (index === array.length - 1) {
                     orderCol.insertOne(ordersTotal, function (err, result) {
-                        if(err){
+                        if (err) {
                             console.log(err);
                         } else {
                             res.status(201);
-                            res.json({ msg: 'Order Created' });
+                            res.json({msg: 'Order Created'});
                             console.log(ordersTotal);
                         }
                     })
@@ -81,16 +89,16 @@ app.post('/orders/', function (req, res) {
         });
 
 
-       
     });
 });
+
 // DELETE
 app.delete('/orders/:id', function (req, res) {
 
-    MongoClient.connect(mongodburl, function (err, db) {
+    MongoClient.connect(mongoDbUrl, function (err, db) {
         var col = db.collection('orders');
 
-        col.deleteOne({ '_id': ObjectId(req.params.id) }, function (err, result) {
+        col.deleteOne({'_id': ObjectId(req.params.id)}, function (err, result) {
             res.status(204);
             res.json();
 
@@ -103,17 +111,17 @@ app.delete('/orders/:id', function (req, res) {
 
 // UPDATE
 app.put('/orders/:id', function (req, res) {
-    
-        MongoClient.connect(mongodburl, function (err, db) {
-            var col = db.collection('orders');
-    
-            col.updateOne({ '_id': ObjectId(req.params.id) }, {$set : req.body}, function(err, result){
-                res.status(204);
-                res.json();
-            });
-            db.close();
+
+    MongoClient.connect(mongoDbUrl).then((db) => {
+        var col = db.collection('orders');
+
+        col.updateOne({'_id': ObjectId(req.params.id)}, {$set: req.body}).then(() => {
+            res.status(204);
+            res.json();
         });
+        db.close();
     });
+});
 
 
-    module.exports = app;
+module.exports = app;
