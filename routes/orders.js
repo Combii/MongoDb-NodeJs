@@ -1,4 +1,4 @@
-const MongoClient = require('mongodb');
+/*const MongoClient = require('mongodb');
 const express = require('express');
 const ObjectId = require('mongodb').ObjectID;
 const bodyParser = require('body-parser');
@@ -7,7 +7,17 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
 //Needed for req.body
+app.use(bodyParser.json());*/
+
+const express = require('express');
+const app = express();
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+const MongoClient = require('mongodb').MongoClient;
+const ObjectId = require('mongodb').ObjectID;
 
 
 const mongoDbUrl = "mongodb://combii:1234@cluster-shard-00-00-uxhgu.mongodb.net:27017,cluster-shard-00-01-uxhgu.mongodb.net:27017,cluster-shard-00-02-uxhgu.mongodb.net:27017/zalandodummy?ssl=true&replicaSet=Cluster-shard-0&authSource=admin";
@@ -62,9 +72,8 @@ app.post('/orders/', function (req, res) {
 
         var ordersTotal = {};
 
-        custCol.findOne({'_id': ObjectId(req.params.id)}).then((result) => {
+        custCol.findOne({'_id': ObjectId(req.body.user)}).then((result) => {
             ordersTotal.user = result;
-            res.json(ordersTotal);
         });
 
 
