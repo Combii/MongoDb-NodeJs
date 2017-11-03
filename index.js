@@ -10,13 +10,13 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
-const customersModule = require(__dirname + './routes/customers.js');
+const customersModule = require(__dirname + '/routes/customers.js');
 app.use(customersModule);
 
-const productsModule = require(__dirname + './routes/products.js');
+const productsModule = require(__dirname + '/routes/products.js');
 app.use(productsModule);
 
-const ordersModule = require(__dirname + './routes/orders.js');
+const ordersModule = require(__dirname + '/routes/orders.js');
 app.use(ordersModule);
 
 app.listen(process.env.port || 3000);
