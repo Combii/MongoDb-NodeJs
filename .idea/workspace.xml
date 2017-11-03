@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e93e65d8-61b7-4913-8133-eea040e2243d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/customers.js" afterPath="$PROJECT_DIR$/routes/customers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/orders.js" afterPath="$PROJECT_DIR$/routes/orders.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/products.js" afterPath="$PROJECT_DIR$/routes/products.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,12 +20,22 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="25" column="16" lean-forward="true" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+            <state relative-caret-position="360">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
-                <element signature="e#533#667#0" expanded="false" />
-                <element signature="e#696#732#0" expanded="false" />
-                <element signature="e#827#1674#0" expanded="false" />
+                <element signature="e#230#266#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="products.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/products.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding>
+                <element signature="e#2577#2641#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -37,49 +44,16 @@
       <file leaf-file-name="orders.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/orders.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="666">
-              <caret line="121" column="19" lean-forward="true" selection-start-line="121" selection-start-column="19" selection-end-line="121" selection-end-column="19" />
+            <state relative-caret-position="969">
+              <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding>
+                <element signature="e#650#934#0" expanded="false" />
                 <element signature="e#702#866#0" expanded="false" />
                 <element signature="e#797#837#0" expanded="false" />
                 <element signature="e#883#929#0" expanded="false" />
-                <element signature="e#1046#1236#0" expanded="false" />
-                <element signature="e#1166#1207#0" expanded="false" />
                 <element signature="e#1253#1299#0" expanded="false" />
-                <element signature="e#1359#2515#0" expanded="false" />
-                <element signature="e#2575#2856#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="customers.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/customers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" column="42" lean-forward="false" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
-              <folding>
-                <element signature="e#573#857#0" expanded="false" />
-                <element signature="e#625#789#0" expanded="false" />
-                <element signature="e#720#760#0" expanded="false" />
-                <element signature="e#806#852#0" expanded="false" />
-                <element signature="e#920#1230#0" expanded="false" />
-                <element signature="e#972#1162#0" expanded="false" />
-                <element signature="e#1092#1133#0" expanded="false" />
-                <element signature="e#1179#1225#0" expanded="false" />
-                <element signature="e#1288#1624#0" expanded="false" />
-                <element signature="e#1340#1620#0" expanded="false" />
-                <element signature="e#1432#1521#0" expanded="false" />
-                <element signature="e#1538#1592#0" expanded="false" />
-                <element signature="e#1687#2324#0" expanded="false" />
-                <element signature="e#1739#2256#0" expanded="false" />
-                <element signature="e#1839#2248#0" expanded="false" />
-                <element signature="e#1916#2068#0" expanded="false" />
-                <element signature="e#2082#2212#0" expanded="false" />
-                <element signature="e#2273#2319#0" expanded="false" />
-                <element signature="e#2384#2684#0" expanded="false" />
-                <element signature="e#2442#2680#0" expanded="false" />
-                <element signature="e#2588#2652#0" expanded="false" />
+                <element signature="e#2598#2879#0" expanded="false" />
+                <element signature="e#2937#3216#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -117,9 +91,9 @@
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/routes/products.js" />
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/routes/customers.js" />
         <option value="$PROJECT_DIR$/routes/orders.js" />
+        <option value="$PROJECT_DIR$/index.js" />
       </list>
     </option>
   </component>
@@ -145,9 +119,9 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="16" />
+    <option name="x" value="122" />
     <option name="y" value="22" />
-    <option name="width" value="1904" />
+    <option name="width" value="960" />
     <option name="height" value="1053" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -316,13 +290,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26346000" />
+    <option name="totallyTimeSpent" value="28381000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="16" y="22" width="1904" height="1053" extended-state="0" />
+    <frame x="122" y="22" width="960" height="1053" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13117366" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2630458" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -377,7 +351,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -387,9 +361,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#533#667#0" expanded="false" />
-            <element signature="e#696#732#0" expanded="false" />
-            <element signature="e#827#1674#0" expanded="false" />
+            <element signature="e#230#266#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -399,9 +371,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#533#667#0" expanded="false" />
-            <element signature="e#696#732#0" expanded="false" />
-            <element signature="e#827#1674#0" expanded="false" />
+            <element signature="e#230#266#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -411,9 +381,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#533#667#0" expanded="false" />
-            <element signature="e#696#732#0" expanded="false" />
-            <element signature="e#827#1674#0" expanded="false" />
+            <element signature="e#230#266#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -423,9 +391,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#533#667#0" expanded="false" />
-            <element signature="e#696#732#0" expanded="false" />
-            <element signature="e#827#1674#0" expanded="false" />
+            <element signature="e#230#266#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -435,9 +401,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#533#667#0" expanded="false" />
-            <element signature="e#696#732#0" expanded="false" />
-            <element signature="e#827#1674#0" expanded="false" />
+            <element signature="e#230#266#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -447,9 +411,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#533#667#0" expanded="false" />
-            <element signature="e#696#732#0" expanded="false" />
-            <element signature="e#827#1674#0" expanded="false" />
+            <element signature="e#230#266#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -459,9 +421,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#533#667#0" expanded="false" />
-            <element signature="e#696#732#0" expanded="false" />
-            <element signature="e#827#1674#0" expanded="false" />
+            <element signature="e#230#266#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -485,9 +445,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#533#667#0" expanded="false" />
-            <element signature="e#696#732#0" expanded="false" />
-            <element signature="e#827#1674#0" expanded="false" />
+            <element signature="e#230#266#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -504,9 +462,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#533#667#0" expanded="false" />
-            <element signature="e#696#732#0" expanded="false" />
-            <element signature="e#827#1674#0" expanded="false" />
+            <element signature="e#230#266#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -523,9 +479,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#533#667#0" expanded="false" />
-            <element signature="e#696#732#0" expanded="false" />
-            <element signature="e#827#1674#0" expanded="false" />
+            <element signature="e#230#266#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -565,15 +519,15 @@
         <state relative-caret-position="405">
           <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
-            <marker date="1509718699000" expanded="false" signature="2577:2641" ph="{...}" />
+            <element signature="e#2577#2641#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/customers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="42" lean-forward="false" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
+        <state relative-caret-position="420">
+          <caret line="101" column="21" lean-forward="true" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
           <folding>
             <element signature="e#573#857#0" expanded="false" />
             <element signature="e#625#789#0" expanded="false" />
@@ -602,29 +556,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="25" column="16" lean-forward="true" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+        <state relative-caret-position="360">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="e#533#667#0" expanded="false" />
-            <element signature="e#696#732#0" expanded="false" />
-            <element signature="e#827#1674#0" expanded="false" />
+            <element signature="e#230#266#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/orders.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="121" column="19" lean-forward="true" selection-start-line="121" selection-start-column="19" selection-end-line="121" selection-end-column="19" />
+        <state relative-caret-position="969">
+          <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding>
+            <element signature="e#650#934#0" expanded="false" />
             <element signature="e#702#866#0" expanded="false" />
             <element signature="e#797#837#0" expanded="false" />
             <element signature="e#883#929#0" expanded="false" />
-            <element signature="e#1046#1236#0" expanded="false" />
-            <element signature="e#1166#1207#0" expanded="false" />
             <element signature="e#1253#1299#0" expanded="false" />
-            <element signature="e#1359#2515#0" expanded="false" />
-            <element signature="e#2575#2856#0" expanded="false" />
+            <element signature="e#2598#2879#0" expanded="false" />
+            <element signature="e#2937#3216#0" expanded="false" />
           </folding>
         </state>
       </provider>

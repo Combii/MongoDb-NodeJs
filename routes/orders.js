@@ -52,7 +52,7 @@ app.get('/orders/:id', function (req, res) {
 // CREATE
 app.post('/orders/', function (req, res) {
 
-    MongoClient.connect(mongoDbUrl, function (err, db) {
+    MongoClient.connect(mongoDbUrl).then((db) => {
 
         var orderCol = db.collection('orders');
         var custCol = db.collection('customers');
@@ -60,15 +60,17 @@ app.post('/orders/', function (req, res) {
 
         var ordersTotal = {};
 
-        custCol.findOne({'_id': ObjectId(req.body.user)}, function (err, result) {
+        custCol.findOne({'_id': ObjectId(req.params.id)}).then((result) => {
             ordersTotal.user = result;
+            res.json(ordersTotal);
         });
 
-        ordersTotal.products = [];
+
+        /*ordersTotal.products = [];
 
         req.body.products.forEach(function (element, index, array) {
 
-            prodCol.findOne({'_id': ObjectId(element)}, function (err, result) {
+            prodCol.findOne({'_id': ObjectId(element)}).then((result) => {
                 ordersTotal.products.push(result);
 
 
@@ -81,12 +83,12 @@ app.post('/orders/', function (req, res) {
                             res.json({msg: 'Order Created'});
                             console.log(ordersTotal);
                         }
-                    })
+                    });
                     db.close();
                 }
 
             });
-        });
+        });*/
 
 
     });
